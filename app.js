@@ -7,14 +7,6 @@ const apikey = '385e80';
 
 const port = process.env.PORT || 2000;
 
-//--- heroku ---
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
-
 //localhost:5000/getmovie?title=MovieTitle
 app.get('/getmovie', (req, res) => {
   const title = req.query.title;
