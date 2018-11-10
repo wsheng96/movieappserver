@@ -9,6 +9,14 @@ const apikey = '385e80';
 const port = process.env.PORT || 2000;
 
 app.use(cors());
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
 
 //localhost:5000/getmovie?title=MovieTitle
 app.get('/getmovie', (req, res) => {
