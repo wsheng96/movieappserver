@@ -2,10 +2,13 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const Movie = require('./Movie');
-const path = require('path'); //---heroku---
+//const path = require('path'); //---heroku---
+const cors = require('cors');
 const apikey = '385e80';
 
 const port = process.env.PORT || 2000;
+
+app.use(cors());
 
 //localhost:5000/getmovie?title=MovieTitle
 app.get('/getmovie', (req, res) => {
